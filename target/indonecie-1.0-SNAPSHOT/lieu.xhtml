@@ -4,15 +4,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <head>
-    <title>Gérer les Lieux</title>
+    <title>Ajouter un Lieu</title>
     
     <!-- Intégration de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100 bg-light">
 
-    <div class="container text-center p-4 shadow bg-white rounded" style="max-width: 500px;">
-        <h2 class="mb-3">Gérer les Lieux</h2>
+    <div class="container text-center p-4 shadow bg-white rounded" style="max-width: 400px;">
+        <h2 class="mb-3">Ajouter un Lieu</h2>
 
         <h:form>
             <!-- Champ Nom -->
@@ -39,29 +39,10 @@
                 <h:inputText id="longitude" value="#{lieuBean.longitude}" class="form-control" required="true"/>
             </div>
 
-            <!-- Boutons Ajouter / Modifier -->
-            <h:commandButton value="Ajouter / Modifier" action="#{lieuBean.sauvegarderLieu}" 
-                             styleClass="btn btn-danger w-100 mb-2"/>
+            <!-- Bouton Ajouter -->
+            <h:commandButton value="Ajouter" action="#{lieuBean.ajouterLieu}" 
+                             styleClass="btn btn-danger w-100"/>
         </h:form>
-
-        <h3 class="mt-4">Liste des Lieux</h3>
-        <h:dataTable value="#{lieuBean.listeLieux}" var="lieu" class="table table-bordered mt-3">
-            <h:column>
-                <f:facet name="header">Nom</f:facet>
-                #{lieu.nom}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Actions</f:facet>
-                <h:form style="display: inline;">
-                    <h:commandButton value="Modifier" action="#{lieuBean.chargerLieu(lieu)}" 
-                                     styleClass="btn btn-warning btn-sm"/>
-                </h:form>
-                <h:form style="display: inline;">
-                    <h:commandButton value="Supprimer" action="#{lieuBean.supprimerLieu(lieu)}" 
-                                     styleClass="btn btn-danger btn-sm ms-2"/>
-                </h:form>
-            </h:column>
-        </h:dataTable>
     </div>
 
     <!-- Bootstrap JS -->
